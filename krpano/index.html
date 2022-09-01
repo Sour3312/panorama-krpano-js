@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Krpano Demo (Ranchi office) </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <style>
+        @-ms-viewport {
+            width: device-width;
+        }
+        
+        @media only screen and (min-device-width:800px) {
+            html {
+                overflow: hidden;
+            }
+        }
+        
+        html {
+            height: 100%;
+            width: 100%;
+        }
+        
+        body {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: #FFFFFF;
+            background-color: #000000;
+        }
+        
+        #pano {
+            height: 100%
+        }
+        
+        #controls {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="controls">
+        <button>Toggle Lite</button>
+        <button>Toggle compact spherical map</button>
+        <button>Toggle panorama video</button>
+    </div>
+    <div id="pano">here i am </div>
+
+    <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="js/krpano.js"></script>
+    <script type="text/javascript">
+        var buttonAr = $('#controls button');
+        //Load the version with debug information by default
+        //embedpano defiend in krpano.js
+        embedpano({
+            xml: "panos/tank/demo_sample.xml",
+            target: "pano",
+            id: "pano_demo",
+            html5: "auto",
+            mobilescale: 1.0,
+            passQueryParameters: true
+        });
+        //switch to compact version
+        $(buttonAr[0]).click(function() {
+                alert("0")
+                    //removepano defiend in krpano.js
+                removepano("pano_demo");
+                embedpano({
+                    xml: "panos/tank/demo_sample.xml",
+                    target: "pano",
+                    id: "pano_demo",
+                    html5: "auto",
+                    mobilescale: 1.0,
+                    passQueryParameters: true
+                });
+            })
+            //Switch to Compact Spherical Map
+        $(buttonAr[1]).click(function() {
+                alert("1")
+                    //removepano defiend in krpano.js
+                removepano("pano_demo");
+                embedpano({
+                    xml: "panos/tank/demo_sphere.xml",
+                    target: "pano",
+                    id: "pano_demo",
+                    html5: "auto",
+                    mobilescale: 1.0,
+                    passQueryParameters: true
+                });
+            })
+            //switch to video
+        $(buttonAr[2]).click(function() {
+            alert("2")
+                //removepano defiend in krpano.js
+            removepano("pano_demo");
+            embedpano({
+                xml: "panos/tank/demo_video.xml",
+                target: "pano",
+                id: "pano_demo",
+                html5: "auto",
+                mobilescale: 1.0,
+                passQueryParameters: true
+            });
+        })
+    </script>
+</body>
+
+</html>
