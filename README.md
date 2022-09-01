@@ -1,4 +1,4 @@
-### 全景图实践
+### Panorama Practice 
 
 1. krpano.js
 
