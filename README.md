@@ -6,5 +6,5 @@
 
 3. three.js + CSS3DRender
 
-### Demo：
-https://allanguys.github.io/panorama/
+<!-- ### Demo： -->
+<!-- https://allanguys.github.io/panorama/ -->
